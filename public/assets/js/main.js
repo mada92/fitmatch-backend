@@ -62,66 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Newsletter form submission
-    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Pobierz adres e-mail
-        const emailInput = this.querySelector('input[type="email"]');
-        const email = emailInput.value.trim();
-
-        if (!email) {
-            alert('Proszę podać adres e-mail.');
-            return;
-        }
-
-        // Tutaj normalnie wysłalibyśmy dane na serwer
-        // Przykładowy kod AJAX
-        /*
-        fetch('/newsletter/subscribe', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: email }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Pokaż komunikat sukcesu
-                const successMessage = document.getElementById('subscribe-success');
-                successMessage.style.display = 'block';
-
-                // Wyczyść formularz
-                this.reset();
-
-                // Ukryj komunikat po czasie
-                setTimeout(function() {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            } else {
-                alert(data.message || 'Wystąpił błąd. Spróbuj ponownie później.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Wystąpił błąd. Spróbuj ponownie później.');
-        });
-        */
-
-        // Dla teraz tylko pokaż komunikat sukcesu
-        const successMessage = document.getElementById('subscribe-success');
-        successMessage.style.display = 'block';
-
-        // Wyczyść formularz
-        this.reset();
-
-        // Ukryj komunikat po czasie
-        setTimeout(function() {
-            successMessage.style.display = 'none';
-        }, 5000);
-    });
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
